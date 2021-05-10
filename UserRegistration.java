@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     private boolean check;
-    private String firstName,lastName, email,phoneNumber;
+    private String firstName,lastName, email,phoneNumber,password;
     Scanner sc = new Scanner(System.in);
     public void checkFirstName(){
         System.out.println("enter first name starts with cap and has minimum 3 character : ");
@@ -53,12 +53,25 @@ public class UserRegistration {
             System.out.println(" phone number is valid ");
         }
     }
+    public void checkPassword() {
+        System.out.println("enter password(8 to 10 character): ");
+        password = sc.nextLine();
+        check = Pattern.compile("^[a-z]{8,}$").matcher(password).matches();
+        if (!check) {
+            System.out.println(" password invalid ");
+            checkPassword();
+        }
+        else {
+            System.out.println(" password valid ");
+        }
+    }
     public static void main(String args[]) {
         UserRegistration user = new UserRegistration();
         user.checkFirstName();
         user.checkLastName();
         user.checkEmail();
         user.checkPhoneNumber();
+        user.checkPassword();
     }
 
 
