@@ -4,13 +4,14 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     private boolean check;
-    private String firstName,lastName, email,phoneNumber,password;
+    private String firstName, lastName, email, phoneNumber, password;
     Scanner sc = new Scanner(System.in);
-    public void checkFirstName(){
+
+    public void checkFirstName() {
         System.out.println("enter first name starts with cap and has minimum 3 character : ");
         firstName = sc.nextLine();
         check = Pattern.compile("[A-Z]{1}[a-z]{2,}").matcher(firstName).matches();
-        if(!check){
+        if (!check) {
             System.out.println(" first name is invalid ");
             checkFirstName();
         }
@@ -18,6 +19,7 @@ public class UserRegistration {
             System.out.println(" first name is valid ");
         }
     }
+
     public void checkLastName() {
         System.out.println("enter last name starts with cap and has minimum 3 character : ");
         lastName = sc.nextLine();
@@ -26,9 +28,11 @@ public class UserRegistration {
             System.out.println(" last name is invalid ");
             checkLastName();
         }
-        else
+        else {
             System.out.println(" last name is valid ");
+        }
     }
+
     public void checkEmail() {
         System.out.println("enter a valid email(Eg. abc.xyz@bl.co.in) : ");
         email = sc.nextLine();
@@ -41,8 +45,9 @@ public class UserRegistration {
             System.out.println(" email is valid ");
         }
     }
+
     public void checkPhoneNumber() {
-        System.out.println("enter a valid mobile number (Eg. 91 9919819801) : ");
+        System.out.println("enter a valid  mobile number (Eg. 91 9919819801) : ");
         phoneNumber = sc.nextLine();
         check = Pattern.compile("^[0-9]{1,3} [0-9]{10}$").matcher(phoneNumber).matches();
         if (!check) {
@@ -53,8 +58,9 @@ public class UserRegistration {
             System.out.println(" phone number is valid ");
         }
     }
+
     public void checkPassword() {
-        System.out.println("enter password min of 8 and at least 1 uppercase character and at least 1 number and exact 1 special character ");
+        System.out.println("enter password min of 8 and at least 1 uppercase character and at least 1 number and exact 1 special character");
         password = sc.nextLine();
         check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]?){8,}.*$").matcher(password).matches();
         if (!check) {
