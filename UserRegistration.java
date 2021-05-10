@@ -6,8 +6,8 @@ public class UserRegistration {
     private boolean check;
     private String firstName,lastName;
     Scanner sc = new Scanner(System.in);
-    public void checkFirstName() {
-        System.out.println("enter first name starts with cap and has minimum 3 character : ");
+    public void checkFirstName(){
+        System.out.println("enter first nam e starts with cap and has minimum 3 character : ");
         firstName = sc.nextLine();
         check = Pattern.compile("[A-Z]{1}[a-z]{2,}").matcher(firstName).matches();
         if(!check){
