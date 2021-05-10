@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     private boolean check;
-    private String firstName,lastName, email;
+    private String firstName,lastName, email,phoneNumber;
     Scanner sc = new Scanner(System.in);
     public void checkFirstName(){
         System.out.println("enter first name starts with cap and has minimum 3 character : ");
@@ -41,11 +41,24 @@ public class UserRegistration {
             System.out.println(" email is valid ");
         }
     }
+    public void checkPhoneNumber() {
+        System.out.println("enter a valid mobile number (Eg. 91 9919819801) : ");
+        phoneNumber = sc.nextLine();
+        check = Pattern.compile("^[0-9]{1,3} [0-9]{10}$").matcher(phoneNumber).matches();
+        if (!check) {
+            System.out.println(" phone number is invalid ");
+            checkPhoneNumber();
+        }
+        else {
+            System.out.println(" phone number is valid ");
+        }
+    }
     public static void main(String args[]) {
         UserRegistration user = new UserRegistration();
         user.checkFirstName();
         user.checkLastName();
         user.checkEmail();
+        user.checkPhoneNumber();
     }
 
 
