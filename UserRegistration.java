@@ -54,9 +54,9 @@ public class UserRegistration {
         }
     }
     public void checkPassword() {
-        System.out.println("enter password min of 8 and at least 1 uppercase character and at least 1 number ");
+        System.out.println("enter password min of 8 and at least 1 uppercase character and at least 1 number and exact 1 special character ");
         password = sc.nextLine();
-        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]){8,}.*$").matcher(password).matches();
+        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]?){8,}.*$").matcher(password).matches();
         if (!check) {
             System.out.println(" password invalid ");
             checkPassword();
